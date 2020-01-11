@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 #Refrescador automatico de clines
 #Creado por Dagger - https://github.com/gavazquez
 
 #If version is 0 or less it will mean that we will delete that file
 
 Versions = {
-    "ReloadCam_Arguments" : 29,
+    "ReloadCam_Arguments" : 30,
     "ReloadCam_ClineTester" : 5,
     "ReloadCam_Helper" : 23,
     "ReloadCam_NlineTester" : 7,
@@ -55,4 +55,3 @@ Versions = {
     "ReloadCam_Server_Powerfull" : 1,
     "ReloadCam_Server_Cccamspot" : 1,
 }
-

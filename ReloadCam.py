@@ -1,19 +1,19 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 
 #Creado por 'Dagger'
 
-#- Script para refrescar lineas desde python para Vu+/Qviart. Permite refrescarlas desde el mando a 
+#- Script para refrescar lineas desde python para Vu+/Qviart. Permite refrescarlas desde el mando a
 #distancia o con el CronManager a una hora fijada.
 
 #- Foro de discusion del script: http://www.forokeys.com/foro/vu/refrescar-cclines-automaticamente
 
 #- Url del repositiorio: https://github.com/gavazquez/ReloadCam
 
-#- El script es de codigo libre por lo que si quieres comprobar como NO 
+#- El script es de codigo libre por lo que si quieres comprobar como NO
 #envia tus Clines a nadie puedes verlo por ti mismo en la url del repositorio (es necesario que tengas conocimientos de python)
 
-#- El script NO inserta las lineas que NO funcionan por lo cual puede parecer que no inserta casi lineas, 
+#- El script NO inserta las lineas que NO funcionan por lo cual puede parecer que no inserta casi lineas,
 #lo que pasa es que una vez ha obtenido las lineas de una web, comprueba si estas funcionan o no y no inserta las que no funcionan.
 
 #- Cuando testea las lineas, las testea internamente, NO las envia ni a testious ni a otro tipo de webs "sospechosas"
@@ -21,7 +21,7 @@
 #IMPORTANTE!!! este simbolo -----> #    Son COMENTARIOS en python, son simplemente para que el python lo ignore,
 #esto significa que en tus scripts .sh NO debes ponerlo!
 
-#Para usarlo: 
+#Para usarlo:
 #1 - Crea un archivo llamado "ReloadCam.py" (La extension debe ser .py!) con algun editor de texto
 #2 - Pega INTEGRAMENTE (desde el principio hasta el final) este texto en ese fichero y guardalo
 #3 - Lee todo este texto hasta abajo y haz las correcciones que se indiquen en caso de que sea necesario
@@ -32,16 +32,16 @@
 #python '/usr/script/ReloadCam.py' -s Allcam                Refresca el CCcam.cfg con lineas de la web de allcam
 #python '/usr/script/ReloadCam.py' -s Mario -s Allcam       Refresca el CCcam.cfg con lineas de la web de mario y allcam
 
-#TODAS (menos testious y freecam): 
+#TODAS (menos testious y freecam):
 #python '/usr/script/ReloadCam.py' -s ALLTF
 
-#TODAS (menos testious): 
+#TODAS (menos testious):
 #python '/usr/script/ReloadCam.py' -s ALLF
 
-#TODAS (menos freecam): 
+#TODAS (menos freecam):
 #python '/usr/script/ReloadCam.py' -s ALLT
 
-#TODAS (incluidas testious y freecam): 
+#TODAS (incluidas testious y freecam):
 #python '/usr/script/ReloadCam.py' -s ALL
 
 #Los valores posibles de esos servidores los tienes en el archivo ReloadCam_Arguments.py
@@ -68,10 +68,10 @@
 #-------------------------
 
 cccamBin = "/usr/bin/CCcam_230" #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
-cccamPath = "/etc/CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
+cccamPath = "./CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
 
 #Cambia esta ruta SOLO si vas a ejecutar el script desde windows. Si lo vas a poner en el vu+ no hace falta que la toques
-cccamPathWindows = "C:\Users\gavaz\Desktop\CCcam.cfg"  
+cccamPathWindows = "C:\Users\gavaz\Desktop\CCcam.cfg"
 
 #-------------------------
 
@@ -82,7 +82,7 @@ def GetCustomClines(): #No borres esta linea!
 
     #Añade aqui una o mas custom clines si quieres (puede ser una cline privada o similar)
     #Respeta las comillas al inicio y final de esta!
-    
+
     #Ejemplos: (Recuerda borrar el '#')
 
     #customClines.append('C: micline.no-ip.org 42000 user pass')
@@ -108,7 +108,7 @@ def GetCustomClines(): #No borres esta linea!
 
 import os.path
 
-sourceUrl = "https://raw.githubusercontent.com/gavazquez/ReloadCam/master/"
+sourceUrl = "https://raw.githubusercontent.com/kralizeck/ReloadCam/master/"
 
 #region Refreshing methods
 
@@ -172,7 +172,7 @@ def GetScriptVersion(path):
 
 def Main():
     import ReloadCam_Main, platform, traceback, sys
-    
+
     try:
         if  platform.system().lower() == "windows": #Esto es solo por si lo ejecutas en windows
             ReloadCam_Main.Main(GetCustomClines(), cccamPathWindows, cccamBin)
